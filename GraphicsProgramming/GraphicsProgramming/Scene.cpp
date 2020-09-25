@@ -213,8 +213,8 @@ void Scene::renderTextOutput()
 {
 	// Render current mouse position and frames per second.
 	sprintf_s(mouseText, "Mouse: %i, %i", input->getMouseX(), input->getMouseY());
-	displayText(-1.f, 0.96f, 1.f, 0.f, 0.f, mouseText);
-	displayText(-1.f, 0.90f, 1.f, 0.f, 0.f, fps);
+	displayText(-0.985f, 0.95f, 1.f, 0.f, 0.f, mouseText);
+	displayText(-0.985f, 0.90f, 1.f, 0.f, 0.f, fps);
 }
 
 // Renders text to screen. Must be called last in render function (before swap buffers)
