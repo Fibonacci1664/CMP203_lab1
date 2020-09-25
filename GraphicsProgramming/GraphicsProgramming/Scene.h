@@ -54,6 +54,7 @@ protected:
 	char fps[40];
 	char mouseText[40];
 
+	bool wireframe;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include<iostream>
 
 // Scene constructor, initilises OpenGL
 // You should add further variables to need initilised.
@@ -12,12 +13,26 @@ Scene::Scene(Input *in)
 	
 
 	// Initialise scene variables
-	
+	wireframe = false;
 }
 
 void Scene::handleInput(float dt)
 {
 	// Handle user input
+
+	if (input->isKeyDown('r') && !wireframe)
+	{
+		glPolygonMode(GL_FRONT, GL_LINE);
+		input->setKeyUp('r');
+		wireframe = true;
+	}
+
+	if (input->isKeyDown('r') && wireframe)
+	{
+		glPolygonMode(GL_FRONT, GL_FILL);
+		input->setKeyUp('r');
+		wireframe = false;
+	}	
 }
 
 void Scene::update(float dt)
@@ -88,10 +103,10 @@ void drawPolygon()
 {
 	glBegin(GL_POLYGON);
 		glVertex3f(0, 0, 0);
-		glVertex3f(1.0, 1.0, 0);
-		glVertex3f(1.5, 0.5, 0);
-		glVertex3f(1.5, -0.5, 0);
 		glVertex3f(1.0, -1.0, 0);
+		glVertex3f(1.5, -0.5, 0);
+		glVertex3f(1.5, 0.5, 0);
+		glVertex3f(1.0, 1.0, 0);		
 	glEnd();
 }
 
@@ -121,7 +136,6 @@ void Scene::render()
 		glVertex3f(1.0, -1.0, 0);
 	glEnd();*/
 
-	glPolygonMode(GL_FRONT, GL_LINE);
 	//drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
 	//drawTriangleStrip();
 	//drawTraingleFan();
