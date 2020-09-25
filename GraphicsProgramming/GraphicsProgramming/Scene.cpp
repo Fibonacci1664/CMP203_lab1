@@ -67,6 +67,23 @@ void drawTraingleFan()
 	glEnd();
 }
 
+void drawQuads()
+{
+	glBegin(GL_QUADS);
+		// Quad 1
+		glVertex3f(1.0, 0, 0);
+		glVertex3f(1.0, 0.5, 0);
+		glVertex3f(0.5, 1.25, 0);
+		glVertex3f(0.5, 0.25, 0);
+
+		// Quad 2
+		glVertex3f(-1.0, 0, 0);
+		glVertex3f(-1.0, -0.5, 0);
+		glVertex3f(-0.5, -1.25, 0);
+		glVertex3f(-0.5, -0.25, 0);
+	glEnd();
+}
+
 void Scene::render()
 {
 
@@ -96,7 +113,8 @@ void Scene::render()
 	glPolygonMode(GL_FRONT, GL_LINE);
 	//drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
 	//drawTriangleStrip();
-	drawTraingleFan();
+	//drawTraingleFan();
+	drawQuads();
 
 	// End render geometry --------------------------------------
 
