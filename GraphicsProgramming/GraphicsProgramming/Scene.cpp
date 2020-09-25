@@ -42,6 +42,19 @@ void drawSquare(float x1, float y1, float z1, float x2, float y2, float z2, floa
 	glEnd();
 }
 
+void drawTriangleStrip()
+{
+	glBegin(GL_TRIANGLE_STRIP);
+		glVertex3f(0.5, 0, 0);
+		glVertex3f(0.25, 0.5, 0);
+		glVertex3f(0, 0, 0);
+		glVertex3f(-0.25, 0.5, 0);
+		glVertex3f(-0.5, 0, 0);
+		glVertex3f(-0.75, 0.5, 0);
+		glVertex3f(-1.0, 0, 0);
+	glEnd();
+}
+
 void Scene::render()
 {
 
@@ -69,7 +82,8 @@ void Scene::render()
 	glEnd();*/
 
 	glPolygonMode(GL_FRONT, GL_LINE);
-	drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
+	//drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
+	drawTriangleStrip();
 
 	// End render geometry --------------------------------------
 
