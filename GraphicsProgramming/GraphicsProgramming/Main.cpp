@@ -144,6 +144,7 @@ void processMouseButtons(int button, int state, int x, int y)
 // Initialises Input and Scene class, prior to starting Main Loop.
 int main(int argc, char **argv) 
 {
+	// SEE APPENDIX D BIG RED BOOK FOR DEFS FOR MOST OF THESE FUNCS.
 
 	// Init GLUT and create window
 	glutInit(&argc, argv);

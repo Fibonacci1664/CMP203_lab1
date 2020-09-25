@@ -39,8 +39,12 @@ void Scene::render() {
 	gluLookAt(0.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 	
 	// Render geometry/scene here -------------------------------------
-	
 
+	glBegin(GL_TRIANGLES);
+		glVertex3f(0, 1.0, 0);
+		glVertex3f(-1.0, -1.0, 0);
+		glVertex3f(1.0, -1.0, 0);
+	glEnd();
 
 	// End render geometry --------------------------------------
 
@@ -55,7 +59,7 @@ void Scene::initialiseOpenGL()
 {
 	//OpenGL settings
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.39f, 0.58f, 93.0f, 1.0f);			// Cornflour Blue Background
+	glClearColor(0.1f, 0.1f, 0.5f, 1.0f);				// Dark Blue Background
 	glClearDepth(1.0f);									// Depth Buffer Setup
 	glClearStencil(0);									// Clear stencil buffer
 	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
@@ -125,7 +129,7 @@ void Scene::displayText(float x, float y, float r, float g, float b, char* strin
 	// Swap to 2D rendering
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-1.0, 1.0, -1.0, 1.0, 5, 100);
+	glOrtho(-1.0, 1.0, -1.0, 1.0, 5, 100); // Original
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	// Orthographic lookAt (along the z-axis).
