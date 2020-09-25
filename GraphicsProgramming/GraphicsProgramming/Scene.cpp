@@ -38,13 +38,18 @@ void Scene::render() {
 	// Set the camera
 	gluLookAt(0.0f, 0.0f, 6.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
-	glColor3f(0.0, 1.0, 0.0);
+	//glColor3f(0.0, 1.0, 0.0);
 	
 	// Render geometry/scene here -------------------------------------
 
 	glBegin(GL_TRIANGLES);
+		glColor3f(1.0, 0.0, 0.0);
 		glVertex3f(0, 1.0, 0);
+
+		glColor3f(0.0, 1.0, 0.0);
 		glVertex3f(-1.0, -1.0, 0);
+
+		glColor3f(0.0, 0.0, 1.0);
 		glVertex3f(1.0, -1.0, 0);
 	glEnd();
 
