@@ -28,7 +28,22 @@ void Scene::update(float dt)
 	calculateFPS();
 }
 
-void Scene::render() {
+void drawSquare(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
+{
+	glBegin(GL_TRIANGLES);
+		glVertex3f(x1, y1, z1);
+		glVertex3f(x2, y2, z3);
+		glVertex3f(x3, y3, z3);
+
+		// Need to make sure these are drawn in an CCW fashion, turning on wireframe helped spot this originally.
+		glVertex3f(x3, y3, z3);
+		glVertex3f(-x2, -y2, z3);
+		glVertex3f(x1, y1, z1);		
+	glEnd();
+}
+
+void Scene::render()
+{
 
 	// Clear Color and Depth Buffers
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -42,7 +57,7 @@ void Scene::render() {
 	
 	// Render geometry/scene here -------------------------------------
 
-	glBegin(GL_TRIANGLES);
+	/*glBegin(GL_TRIANGLES);
 		glColor3f(1.0, 0.0, 0.0);
 		glVertex3f(0, 1.0, 0);
 
@@ -51,7 +66,10 @@ void Scene::render() {
 
 		glColor3f(0.0, 0.0, 1.0);
 		glVertex3f(1.0, -1.0, 0);
-	glEnd();
+	glEnd();*/
+
+	glPolygonMode(GL_FRONT, GL_LINE);
+	drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
 
 	// End render geometry --------------------------------------
 
