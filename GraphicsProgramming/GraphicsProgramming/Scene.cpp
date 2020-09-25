@@ -84,6 +84,17 @@ void drawQuads()
 	glEnd();
 }
 
+void drawPolygon()
+{
+	glBegin(GL_POLYGON);
+		glVertex3f(0, 0, 0);
+		glVertex3f(1.0, 1.0, 0);
+		glVertex3f(1.5, 0.5, 0);
+		glVertex3f(1.5, -0.5, 0);
+		glVertex3f(1.0, -1.0, 0);
+	glEnd();
+}
+
 void Scene::render()
 {
 
@@ -114,7 +125,8 @@ void Scene::render()
 	//drawSquare(1.0, 1.0, 0, -1.0, 1.0, 0, -1.0, -1.0, 0);
 	//drawTriangleStrip();
 	//drawTraingleFan();
-	drawQuads();
+	//drawQuads();
+	drawPolygon();
 
 	// End render geometry --------------------------------------
 
