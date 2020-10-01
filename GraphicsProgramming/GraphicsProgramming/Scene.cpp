@@ -11,8 +11,6 @@ Scene::Scene(Input *in)
 
 	// Other OpenGL / render setting should be applied here.
 	
-
-	// Initialise scene variables
 	wireframe = false;
 }
 
@@ -43,7 +41,7 @@ void Scene::update(float dt)
 	calculateFPS();
 }
 
-void drawSquare(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
+void Scene::drawSquare(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
 {
 	glBegin(GL_TRIANGLES);
 		glVertex3f(x1, y1, z1);
@@ -57,7 +55,7 @@ void drawSquare(float x1, float y1, float z1, float x2, float y2, float z2, floa
 	glEnd();
 }
 
-void drawTriangleStrip()
+void Scene::drawTriangleStrip()
 {
 	glBegin(GL_TRIANGLE_STRIP);
 		glVertex3f(0.5, 0, 0);
@@ -70,7 +68,7 @@ void drawTriangleStrip()
 	glEnd();
 }
 
-void drawTraingleFan()
+void Scene::drawTraingleFan()
 {
 	glBegin(GL_TRIANGLE_FAN);
 		glVertex3f(0, 0, 0);
@@ -82,7 +80,7 @@ void drawTraingleFan()
 	glEnd();
 }
 
-void drawQuads()
+void Scene::drawQuads()
 {
 	glBegin(GL_QUADS);
 		// Quad 1
@@ -99,7 +97,7 @@ void drawQuads()
 	glEnd();
 }
 
-void drawPolygon()
+void Scene::drawPolygon()
 {
 	glBegin(GL_POLYGON);
 		glVertex3f(0, 0, 0);
